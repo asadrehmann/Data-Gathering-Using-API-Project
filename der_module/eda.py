@@ -24,7 +24,7 @@ import pandas as pd
 This cell loads the `movies_data.csv.xls` file into a pandas DataFrame named `df`. This is the first step in bringing our data into the notebook for analysis.
 """
 
-df=pd.read_csv("/content/movies_data.csv.xls")
+df = pd.read_csv("/content/movies_data.csv.xls")
 
 """### 3. Display the first 2 rows of the DataFrame
 
@@ -66,7 +66,7 @@ df.isnull().sum()
 This cell first drops rows where critical columns (`release_date`, `poster_path`, `overview`, `backdrop_path`) have missing values, as these are important for movie data. Then, it fills any remaining null values in the entire DataFrame with `0`. This ensures that all entries have a value and prevents potential errors in further analysis.
 """
 
-df = df.dropna(subset=["release_date","poster_path","overview","backdrop_path"])
+df = df.dropna(subset=["release_date", "poster_path", "overview", "backdrop_path"])
 df.fillna(0, inplace=True)
 
 """### 9. Check for duplicate rows
@@ -95,7 +95,7 @@ df.describe()
 This cell calculates and displays the frequency of unique combinations of `popularity`, `vote_average`, and `vote_count`. This helps in understanding the distribution and common patterns within these specific numerical features.
 """
 
-df[['popularity','vote_average','vote_count']].value_counts()
+df[["popularity", "vote_average", "vote_count"]].value_counts()
 
 """### 13. Plot histogram of `vote_average`
 
@@ -104,7 +104,7 @@ This code generates a histogram of the `vote_average` column using `matplotlib.p
 
 import matplotlib.pyplot as plt
 
-df['vote_average'].hist(bins=20)
+df["vote_average"].hist(bins=20)
 plt.title("Vote Average Distribution")
 plt.show()
 
@@ -113,14 +113,14 @@ plt.show()
 This cell calculates the pairwise correlation between `popularity`, `vote_average`, and `vote_count`. The correlation matrix helps in understanding the linear relationship between these numerical variables. Values close to 1 indicate a strong positive correlation, values close to -1 indicate a strong negative correlation, and values close to 0 indicate a weak or no linear correlation.
 """
 
-df[['popularity','vote_average','vote_count']].corr()
+df[["popularity", "vote_average", "vote_count"]].corr()
 
 """### 15. Plot scatter plot of `popularity` vs `vote_count`
 
 This cell generates a scatter plot to visualize the relationship between `popularity` and `vote_count`. Each point on the plot represents a movie, with its x-coordinate being its popularity and its y-coordinate being its vote count. Scatter plots are useful for identifying trends, correlations, or clusters between two numerical variables.
 """
 
-plt.scatter(df['popularity'], df['vote_count'])
+plt.scatter(df["popularity"], df["vote_count"])
 plt.xlabel("popularity")
 plt.ylabel("vote_count")
 plt.title("Popularity vs Vote Count Scatter Plot")
@@ -130,4 +130,3 @@ plt.show()
 
 This cell uses the `nlargest()` method to select the top 5 movies based on their 'popularity' score. It then displays only the 'title' and 'popularity' columns of these top movies, providing a quick summary of the most popular films in the dataset.
 """
-

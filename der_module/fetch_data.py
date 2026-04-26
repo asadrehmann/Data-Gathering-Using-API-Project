@@ -2,9 +2,10 @@ import requests
 
 api_key = "50894786170734923bca3c91d9bf29ee"
 
+
 def get_data(base_url, end_point, page=1):
     url = f"{base_url}/{end_point}?api_key={api_key}&page={page}"
-    
+
     response = requests.get(url)
 
     if response.status_code == 200:
