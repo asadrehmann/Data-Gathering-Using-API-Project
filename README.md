@@ -29,5 +29,5 @@ During the analysis, it was observed that the dataset was relatively clean with 
 
 References
 TMDB API Documentation
-Python (pandas, matplotlib, seaborn libraries)
+Python (pandas,requests libraries)
 Google Colab for data analysis environment
