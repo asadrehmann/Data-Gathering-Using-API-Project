@@ -1,6 +1,6 @@
 import requests
 
-api_key = "50894786170734923bca3c91d9bf29ee"
+api_key = "use your api key Thank you"
 
 
 def get_data(base_url, end_point, page=1):
